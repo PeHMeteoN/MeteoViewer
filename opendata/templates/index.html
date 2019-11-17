@@ -1,0 +1,28 @@
+{% load static %}
+{% load leaflet_tags %}
+<html lang="en">
+<head>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <style>
+      .leaflet-container { height: 100%; }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Geocodery</title>
+
+    <script type="text/javascript">
+        window.addEventListener("map:init", function (event) {
+        var map = event.detail.map;
+        var searchControl = new L.esri.Controls.Geosearch().addTo(map);
+      });
+    </script>
+</head>
+<body>
+
+<div id="map" class="map">
+    {% leaflet_map "main" %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+data/
+hydroshed/
+xlsx/
+r/
+
+*.docx
+*.pptx
+*.mxd
+*.idea
+*.pyc
+
+
+/shp
+/raster
+/kmz
+
+
+# pycharm
+.idea/
