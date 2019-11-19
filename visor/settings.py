@@ -90,9 +90,9 @@ WSGI_APPLICATION = 'visor.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'BASEMAP',
+        'NAME': 'CLIMATIC',
         'USER': 'postgres',
-        'PASSWORD': '72916096',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -121,13 +121,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 

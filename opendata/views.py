@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.views.generic import DetailView
-from .models import City
+from .models import OpendataHistoric
 
 
 # class CitiesDetailView(DetailView):

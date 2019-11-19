@@ -7,12 +7,12 @@ from django.views.generic import TemplateView
 from djgeojson.views import GeoJSONLayerView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from .models import City
-
+from .models import OpendataHistoric
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
+    url(r'^data.geojson$',GeoJSONLayerView.as_view(model=OpendataHistoric, properties=('cod', 'estado', 'nom')), name='data')
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()

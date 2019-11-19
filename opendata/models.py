@@ -1,14 +1,18 @@
-from django.db import models
-from django.contrib.gis.db import models as geomodels
+from django.contrib.gis.db import models
 
-
-class City(models.Model):
-    name = models.CharField(max_length=100, blank=False)
-    geometry = geomodels.PointField()
+class OpendataHistoric(models.Model):
+    index = models.BigIntegerField(blank=True, null=True)
+    alt = models.FloatField(blank=True, null=True)
+    cate = models.TextField(blank=True, null=True)
+    cod = models.TextField(blank=True, null=True)
+    cod_old = models.FloatField(blank=True, null=True)
+    estado = models.TextField(blank=True, null=True)
+    ico = models.TextField(blank=True, null=True)
+    lat = models.FloatField(blank=True, null=True)
+    lon = models.FloatField(blank=True, null=True)
+    nom = models.TextField(blank=True, null=True)
+    geom = models.PointField(blank=True, null=True)
 
     class Meta:
-        # order of drop-down list items
-        ordering = ('name',)
-
-        # plural form in admin view
-        verbose_name_plural = 'cities'
+        managed = False
+        db_table = 'opendata_historic'
