@@ -1,0 +1,62 @@
+html,
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #657280;
+
+}
+
+.flex-fill {
+    flex: 1 1 auto;
+}
+
+body{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #f8f9fa;
+}
+
+#logoGeocodery{
+    width: auto;
+    height:35px;
+}
+
+#map{
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-wrapper {
+    background: linear-gradient(180deg, rgba(47,88,246,0.804359243697479) 0%, rgba(65,103,189,0.7763480392156863) 100%);
+}
+
+.page-footer-ry {
+    color: #fff;
+    background-color: #555dda;
+}
+
+.footer-copyright-ry {
+    overflow: hidden;
+    min-height: 20px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    background-color: rgba(51,51,51,0.08);
+}
+
+
+
+
+
+
+
+
+
+

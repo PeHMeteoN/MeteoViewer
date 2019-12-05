@@ -16,3 +16,4 @@ class OpendataHistoric(models.Model):
     class Meta:
         managed = False
         db_table = 'opendata_historic'
+

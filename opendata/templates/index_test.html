@@ -1,0 +1,111 @@
+{% load static %}
+{% load leaflet_tags %}
+<html lang="en">
+<head>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <style>
+      .leaflet-container { height: 100%;}
+    </style>
+    {% block css %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    {% endblock css %}
+
+    <meta charset="UTF-8">
+    <title>Geocodery</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"> </script>
+    <link rel="stylesheet" href="{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css' %}">
+    <script src="{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js' %}"></script>
+    <script src="{% static 'js/mousePosition.js' %}"></script>
+
+    <script type="text/javascript">var dataurl = '{% url "data" %}';</script>
+    <script type="text/javascript" src="{% static 'js/map_container.js' %}"></script>
+
+</head>
+<body>
+{% block javascript %}
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js"
+        integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function(){
+
+  // Inicializar materialize
+  $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+  $('select').formSelect();
+
+  // Activar dropdown
+  $(".dropdown-trigger").dropdown();
+
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+</script>
+
+{% endblock javascript %}
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">SENAMHI Historico</a></li>
+    <li><a href="#!">SENAMHI Actual</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">PISCO</a></li>
+</ul>
+<nav>
+    <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">
+            <img id="logoGeocodery" src="https://geocodery.github.io/page/img/logo-icon.png">Geocodery
+        </a>
+        <ul class="right hide-on-med-and-down">
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dataset<i class="material-icons right">arrow_drop_down</i></a>
+            </li>
+            <li><a href="">Variable<span class="new badge">4</span></a></li>
+            <li><a href="">Time of year</a></li>
+            <li><a href="">Scenarios</a></li>
+            <li><a href=""><i class="material-icons left">file_download</i>Download</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+<ul id="slide-out" class="sidenav">
+<li><div class="user-view">
+  <div class="background">
+    <img src="images/office.jpg">
+  </div>
+  <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+  <a href="#name"><span class="white-text name">John Doe</span></a>
+  <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+</div></li>
+<li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+<li><a href="#!">Second Link</a></li>
+<li><div class="divider"></div></li>
+<li><a class="subheader">Subheader</a></li>
+<li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+</ul>
+<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+
+<div id="map" class="map">
+    {% leaflet_map "main" %}
+</div>
+
+<footer class="page-footer-ry">
+    <div class="footer-copyright-ry text-center"><span class="texto">© 2019 Copyright</span></div>
+</footer>
+
+</body>
+</html>
