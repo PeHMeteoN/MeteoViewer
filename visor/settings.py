@@ -38,17 +38,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'django.contrib.gis',
-
     # Local Apps
+    # 'mapwidgets',
     'leaflet',
+    'djgeojson',
     'opendata',
+    'dashboard',
     # 'materializecssform',
-
 ]
 
-GDAL_PATH_LIBRARY = "C:/OSGeo4W64/bin/gdal202.dll"
+# GEOS_LIBRARY_PATH = r"C:\OSGeo4W\bin\geos_c.dll"
+# GDAL_LIBRARY_PATH = r"C:\OSGeo4W\bin\gdal204.dll"
+# GDAL_PATH_LIBRARY = "C:/OSGeo4W64/bin/gdal111.dll"
+
+
+# GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
+# GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,8 +85,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'visor.wsgi.application'
-
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -93,14 +97,15 @@ WSGI_APPLICATION = 'visor.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'CLIMATIC',
+        'NAME': 'phd_climatic',
         'USER': 'postgres',
-        'PASSWORD': '',
+        'PASSWORD': '72916096',
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
 
+POSTGIS_VERSION = (2, 4, 3)
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -137,8 +142,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = BASE_DIR
 
 stamenurl = 'http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png'
 mbUrl = 'https://maps.heigit.org/openmapsurfer/tiles/roads/webmercator/{z}/{x}/{y}.png'
@@ -157,3 +160,17 @@ LEAFLET_CONFIG = {
     ],
     'RESET_VIEW': False,
 }
+
+
+import os
+if os.name == 'nt':
+    import platform
+    OSGEO4W = r"C:\OSGeo4W"
+    if '64' in platform.architecture()[0]:
+        OSGEO4W += "64"
+    assert os.path.isdir(OSGEO4W), "Directory does not exist: " + OSGEO4W
+    os.environ['OSGEO4W_ROOT'] = OSGEO4W
+    os.environ['GDAL_DATA'] = OSGEO4W + r"\share\gdal"
+    os.environ['PROJ_LIB'] = OSGEO4W + r"\share\proj"
+    GDAL_LIBRARY_PATH = r'C:\Python36\Lib\site-packages\osgeo\gdal300.dll'
+    os.environ['PATH'] = OSGEO4W + r"\bin;" + os.environ['PATH']

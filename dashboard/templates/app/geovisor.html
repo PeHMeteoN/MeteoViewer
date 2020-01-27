@@ -1,0 +1,47 @@
+{% extends "app/base_site.html" %}
+{% load staticfiles %}
+
+{% block title %} Geovisor {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+  <link href="/static/build/css/leaflet.css" rel="stylesheet">
+  <style>
+      .leaflet-container { height: 100%;}
+  </style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <div class="right_col" role="main">
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <div id="map" class="map"></div>
+        </div>
+    </div>
+    <script>
+      function screenWidthZoom(){
+        var width = document.documentElement.clientWidth;
+        if (width < 768) {
+          return 3;
+        } else {
+          return 4;
+        }
+      }
+      var map = L.map('map', {
+        scrollWheelZoom: true,
+        center: [-15, -75],
+        scrollWheelZoom: true,
+        zoom: screenWidthZoom()
+      });
+
+      L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles © Esri — Esri, DeLorme, NAVTEQ',
+        maxZoom: 16
+      }).addTo(map);
+
+      window.addEventListener('resize', function(event){
+        map.setZoom(screenWidthZoom());
+      });
+    </script>
+{% endblock %}

@@ -18,11 +18,11 @@
     {% endblock css %}
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"> </script>
+    <script src="https://unpkg.com/esri-leaflet@2.3.2/dist/esri-leaflet.js" integrity="sha512-6LVib9wGnqVKIClCduEwsCub7iauLXpwrd5njR2J507m3A2a4HXJDLMiSZzjcksag3UluIfuW1KzuWVI5n/cuQ==" crossorigin=""></script>
     <link rel="stylesheet" href="{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css' %}">
     <script src="{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js' %}"></script>
     <script src="{% static 'js/mousePosition.js' %}"></script>
 
-    <script type="text/javascript">var dataurl = '{% url "data" %}';</script>
     <script type="text/javascript" src="{% static 'js/map_container.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/L.TileLayer.BetterWMS.js' %}"></script>
 </head>
