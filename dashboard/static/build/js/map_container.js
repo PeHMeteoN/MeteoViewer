@@ -1,5 +1,4 @@
 window.addEventListener("map:init", function (event) {
-
 var map = event.detail.map.setView( [-15, -75], 4);
 
 var departamentos = L.tileLayer.wms("http://localhost:8080/geoserver/bd/wms", {
@@ -20,38 +19,10 @@ var gpo_puno = L.tileLayer.wms("http://localhost:8080/geoserver/bd/wms", {
    transparent: true
 });
 
-var estaciones_colombia = L.esri.dynamicMapLayer({
-   url: "http://dhime.ideam.gov.co/arcgis/rest/services/CNE/EstacionesQ_edit/MapServer",
-   useCors: false
-});
-
-
-var imerg_7day = L.esri.dynamicMapLayer({
-   url: "https://gis1.servirglobal.net/arcgis/rest/services/Global/IMERG_Accumulations/MapServer",
-   layers: [3]
-});
-
 var zonavida = L.tileLayer.wms("http://idesep.senamhi.gob.pe/geoserver/g_05_06/wms", {
    layers: "05_06_001_03_001_521_0000_00_00",
    format: 'image/png',
    transparent: true
-});
-
-var zonavida_2 = L.esri.dynamicMapLayer({
-   url: "http://idesep.senamhi.gob.pe/geoserver/g_05_06/wms",
-   layers: ["05_06_001_03_001_521_0000_00_00"]
-});
-
-
-zonavida_2.bindPopup(function (error, featureCollection) {
-    if (error || featureCollection.features.length === 0) {
-      console.log(error);
-      console.log(featureCollection);
-      return false;
-    } else {
-      console.log(featureCollection);
-      return 'Risk Level: ' + featureCollection.features[0].properties["Pixel Value"];
-    }
 });
 
 var groupedOverLayers = {
@@ -61,7 +32,6 @@ var groupedOverLayers = {
     "Puno": gpo_puno
   },
   "Data": {
-    "imerg_7day": imerg_7day,
     "Zona de Vida": zonavida
   }
 };
@@ -74,5 +44,7 @@ L.control.groupedLayers(null, groupedOverLayers, {
 L.control.scale({
   imperial: false
 }).addTo(map);
+
+
 
 });

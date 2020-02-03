@@ -1,0 +1,115 @@
+{% extends "app/base_site.html" %}
+{% load staticfiles %}
+
+{% load leaflet_tags %}
+
+{% block title %} Geovisor {% endblock title %}
+
+{% block stylesheets %}
+{% leaflet_css %}
+{{ block.super }}
+<link href="/static/build/css/leaflet.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css' %}">
+<style>
+      .leaflet-container { height: 100%;}
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+{% block javascript %}
+
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"> </script>
+<script src="{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js' %}"></script>
+<script src="{% static '/build/js/mousePosition.js' %}"></script>
+<script type="text/javascript" src="{% static '/build/js/L.TileLayer.BetterWMS.js' %}"></script>
+<script type="text/javascript" src="{% static 'build/js/map_container.js' %}"></script>
+{% endblock javascript %}
+
+<div class="right_col" role="main">
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <div id="map" class="map">mapa</div>
+    </div>
+</div>
+
+{% endblock %}
+<script>
+     var map = L.map('map', {
+       scrollWheelZoom: true,
+       center: [-15, -75],
+       scrollWheelZoom: true,
+       zoom: 10
+     });
+
+     L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+       attribution: 'Tiles © Esri — Esri, DeLorme, NAVTEQ',
+       maxZoom: 16
+     }).addTo(map);
+
+     //function screenWidthZoom(){
+     // var width = document.documentElement.clientWidth;
+     // if (width < 768) {
+     //   return 3;
+     // } else {
+     //   return 4;
+     // }
+     //}
+//
+     //var map = L.map('map', {
+     //  scrollWheelZoom: true,
+     //  center: [-15, -75],
+     //  scrollWheelZoom: true,
+     //  zoom: screenWidthZoom()
+     //});
+//
+     //L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+     //  attribution: 'Tiles © Esri — Esri, DeLorme, NAVTEQ',
+     //  maxZoom: 16
+     //}).addTo(map);
+//
+//
+     //var departamentos = L.tileLayer.wms("http://localhost:8080/geoserver/bd/wms", {
+     //  layers: "bd:gpo_departamentos",
+     //  format: 'image/png',
+     //  transparent: true
+     //});
+//
+     //var provincias = L.tileLayer.wms("http://localhost:8080/geoserver/bd/wms", {
+     //  layers: "bd:gpo_provincias",
+     //  format: 'image/png',
+     //  transparent: true
+     //});
+//
+     //var gpo_puno = L.tileLayer.wms("http://localhost:8080/geoserver/bd/wms", {
+     //  layers: "bd:gpo_dep_puno",
+     //  format: 'image/png',
+     //  transparent: true
+     //});
+//
+     //var zonavida = L.tileLayer.wms("http://idesep.senamhi.gob.pe/geoserver/g_05_06/wms", {
+     //  layers: "05_06_001_03_001_521_0000_00_00",
+     //  format: 'image/png',
+     //  transparent: true
+     //});
+//
+     //var groupedOverLayers = {
+     //  "Base": {
+     //    "Departamentos": departamentos,
+     //    "Provincias": provincias,
+     //    "Puno": gpo_puno
+     //  },
+     //  "Data": {
+     //    "Zona de Vida": zonavida
+     //  }
+     //};
+//
+     //L.control.groupedLayers(null, groupedOverLayers, {
+     //  collapsed: false,
+     //  position: 'topleft'
+     //}).addTo(map);
+//
+     //L.control.scale({
+     //  imperial: false
+     //}).addTo(map);
+
+</script>
