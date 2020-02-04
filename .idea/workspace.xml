@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed9ae64c-0a19-43ac-bde6-d269649899d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dashboard/static/build/images/layers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/static/images/imagen.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/static/images/layers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/templates/app/geovisor_old.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/templates/app/base_site_old.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/templates/app/top_navigation_old.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/static/build/js/map_container.js" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/static/build/js/map_container.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/templates/app/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/app/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/static/build/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/static/build/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/app/base_site.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/app/base_site.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/templates/app/geovisor.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/app/geovisor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/templates/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visor/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/visor/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/visor/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/app/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/app/sidebar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +35,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/dashboard/static/build/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dashboard/templates/app" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -58,10 +54,10 @@
       <recent name="E:\2019\SENAMHI\visor\opendata" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\2019\SENAMHI\visor\dashboard\templates\app" />
       <recent name="E:\2019\SENAMHI\visor\dashboard\static\build\images" />
       <recent name="E:\2019\SENAMHI\visor\dashboard\static\images" />
       <recent name="E:\2019\SENAMHI\visor\dashboard\static\vendors" />
-      <recent name="E:\2019\SENAMHI\visor\dashboard\templates\app" />
       <recent name="E:\2019\SENAMHI\visor\dashboard\static" />
     </key>
   </component>

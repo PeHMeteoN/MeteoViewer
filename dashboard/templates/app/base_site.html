@@ -26,52 +26,32 @@
     {% endblock head %}
   </head>
 
-  <body class="{% block body_class %}nav-md {% endblock body_class %}">
-    {% block body %}
-      <div class="container body">
-        <div class="main_container">
+  <body>
+  {% block body %}
+  <div class="maincontainer-cus">
+    <div class="container-cus">
+      <div class="menucontainer-cus">
           {% block sidebar %}
-            <div class="col-md-3 left_col {% block sidebar_class %} {% endblock sidebar_class %}">
               {% include "app/sidebar.html" %}
-            </div>
           {% endblock sidebar %}
+      </div>
+      <div class="parentcontainer-cus">
+        <div class="navcontainer-cus">
           {% block top_navigation %}
-            <div class="top_nav">
               {% include "app/top_navigation.html" %}
-            </div>
           {% endblock top_navigation %}
+        </div>
+        <div class="mapcontainer-cus">
           {% block content %}
-            <!-- {{ content }} -->
+             {{ content }}
           {% endblock content %}
-          {% block footer %}
-            <footer>
-              {% include "app/footer.html" %}
-            </footer>
-          {% endblock footer %}
         </div>
       </div>
-      {% block javascripts %}
-      <script src="/static/vendors/jquery/dist/jquery.min.js"></script>
-      <script src="/static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-      <script src="/static/vendors/fastclick/lib/fastclick.js"></script>
-      <script src="/static/vendors/nprogress/nprogress.js"></script>
-      <script src="/static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-      <script src="/static/vendors/iCheck/icheck.min.js"></script>
-      <script src="/static/vendors/moment/min/moment.min.js"></script>
-      <script src="/static/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-      <script src="/static/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-      <script src="/static/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-      <script src="/static/vendors/google-code-prettify/src/prettify.js"></script>
-      <script src="/static/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
-      <script src="/static/vendors/switchery/dist/switchery.min.js"></script>
-      <script src="/static/vendors/select2/dist/js/select2.full.min.js"></script>
-<!--      <script src="/static/vendors/parsleyjs/dist/parsley.min.js"></script>-->
-      <script src="/static/vendors/autosize/dist/autosize.min.js"></script>
-      <script src="/static/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
-      <script src="/static/vendors/starrr/dist/starrr.js"></script>
+    </div>
+    <footer class="footer-cus">
 
-      {% endblock %}
-      <script src="/static/build/js/custom.js"></script>
-    {% endblock body %}
+    </footer>
+  </div>
+      {% endblock body %}
   </body>
 </html>
