@@ -41,10 +41,6 @@ L.control.groupedLayers(null, groupedOverLayers, {
     position: 'topleft'
 }).addTo(map);
 
-L.control.scale({
-  imperial: false
-}).addTo(map);
-
 
 
 });

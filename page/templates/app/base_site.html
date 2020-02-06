@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% load staticfiles %}
 <html>
   <head>
     {% block head %}
@@ -14,24 +13,26 @@
       {% block stylesheets %}
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
       {% endblock stylesheets %}
-      <link href="/static/build/css/styles.css" rel="stylesheet">
-      <link href="/static/build/js/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css" rel="stylesheet" >
-  {% endblock head %}
+      <link href="/static/css/leaflet.css" rel="stylesheet">
+      <link href="/static/css/styles.css" rel="stylesheet">
+    {% endblock head %}
   </head>
 <body>
 {% block body %}
     <div class="wrapper">
+        <!-- Sidebar  -->
         {% block sidebar %}
             {% include "app/sidebar.html" %}
         {% endblock sidebar %}
-        <div id="content">
+        <!-- Page Content  -->
+        <div class="mapcontainer-cus">
             {% block content %}
               {{ content }}
             {% endblock content %}
         </div>
     </div>
-    <footer class="footer-cus">
-    </footer>
+<!--    <footer class="footer-cus">-->
+<!--    </footer>-->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>

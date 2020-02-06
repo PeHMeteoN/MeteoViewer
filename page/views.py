@@ -8,7 +8,7 @@ def index(request):
     template = loader.get_template('app/index.html')
     return HttpResponse(template.render(context, request))
 
-def visor_html(request):
+def page_html(request):
     context = {}
     load_template = request.path.split('/')[-1]
     template = loader.get_template('app/' + load_template)

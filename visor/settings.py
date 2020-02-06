@@ -27,9 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-
 INSTALLED_APPS = [
     # Django Apps
     'django.contrib.admin',
@@ -45,16 +43,10 @@ INSTALLED_APPS = [
     'djgeojson',
     'opendata',
     'dashboard',
+    # 'page',
     # 'materializecssform',
 ]
 
-# GEOS_LIBRARY_PATH = r"C:\OSGeo4W\bin\geos_c.dll"
-# GDAL_LIBRARY_PATH = r"C:\OSGeo4W\bin\gdal204.dll"
-# GDAL_PATH_LIBRARY = "C:/OSGeo4W64/bin/gdal111.dll"
-
-
-# GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
-# GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

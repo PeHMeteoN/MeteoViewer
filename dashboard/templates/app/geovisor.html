@@ -1,34 +1,31 @@
 {% extends "app/base_site.html" %}
-{% load staticfiles %}
+{% load static %}
 
 {% load leaflet_tags %}
 
-{% block title %} Geovisor {% endblock title %}
+{% block title %} Dashboard 1 {% endblock title %}
 
 {% block stylesheets %}
 {% leaflet_css %}
 {{ block.super }}
 <style>
-  .leaflet-container { height: 100%;}
+.leaflet-container { height: 100%;}
+#content{ padding: 0px!important;}
 </style>
-<link href="/static/build/css/leaflet.css" rel="stylesheet">
-
 {% endblock stylesheets %}
 
 {% block content %}
+
 {% block javascript %}
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"> </script>
 {% leaflet_js %}
-<script src="{% static 'build/js/mousePosition.js' %}"></script>
-<script type="text/javascript" src="{% static 'build/js/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js' %}"></script>
-<script type="text/javascript" src="{% static 'build/js/L.TileLayer.BetterWMS.js' %}"></script>
-<script type="text/javascript" src="{% static 'build/js/map_container.js' %}"></script>
+<script src="/static/build/js/mousePosition.js"></script>
+<script src="/static/build/js/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js"></script>
+<script src="/static/build/js/L.TileLayer.BetterWMS.js"></script>
+<script src="/static/build/js/map_container.js"></script>
 {% endblock javascript %}
 
-<!--<div class="right_col" role="main" style="padding: 0px, 0px, 0!important;">-->
-<!--    <div class="col-md col-sm col-xs-2 tile_stats_count">-->
-        <div id="map" class="map">{% leaflet_map "main" %}</div>
-<!--    </div>-->
-<!--</div>-->
+<div id="map" class="map">
+    {% leaflet_map "main" %}
+</div>
 
 {% endblock content %}
